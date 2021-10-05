@@ -40,7 +40,7 @@ const QdtPicasso = ({
 
   const cancelSelections = () => {
     const { brush } = pic;
-    brush('select').end();
+    // brush('select').end();
     endSelections(false);
     setSelectionBarVisible(false);
   };
@@ -77,16 +77,16 @@ const QdtPicasso = ({
       }],
       settings: _settings,
     });
-    pic.brush('select').on('start', () => {
-      beginSelections();
-      // select(0, [], false);
-      setSelectionBarVisible(true);
-    });
-    pic.brush('select').on('update', (added, removed) => {
-      if (!selections && !added) return;
-      const _selections = [...added, ...removed].map((v) => v.values[0]);
-      select(0, _selections);
-    });
+    // pic.brush('select').on('start', () => {
+    //   beginSelections();
+    //   // select(0, [], false);
+    //   setSelectionBarVisible(true);
+    // });
+    // pic.brush('select').on('update', (added, removed) => {
+    //   if (!selections && !added) return;
+    //   const _selections = [...added, ...removed].map((v) => v.values[0]);
+    //   select(0, _selections);
+    // });
   };
 
   const updatePic = () => {
@@ -113,13 +113,13 @@ const QdtPicasso = ({
     });
   };
 
-  const confirmSelections = async () => {
-    const { brush } = pic;
-    brush('select').end();
-    await endSelections(true);
-    if (afterConfirmSelections) { afterConfirmSelections(); }
-    setSelectionBarVisible(false);
-  };
+  // const confirmSelections = async () => {
+  //   const { brush } = pic;
+  //   brush('select').end();
+  //   await endSelections(true);
+  //   if (afterConfirmSelections) { afterConfirmSelections(); }
+  //   setSelectionBarVisible(false);
+  // };
 
   const handleOutsideClick = (event) => {
     if (isSelectionBarVisible) {
